@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reactive Website</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: #222;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                background: #333;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav.show {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>My Website</h2>
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+    <nav id="navMenu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Reactive Website</h1>
+    <p id="message">Click the button to change this text.</p>
+    <button onclick="changeText()">Click Me</button>
+</div>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("navMenu").classList.toggle("show");
+    }
+
+    function changeText() {
+        document.getElementById("message").innerText =
+            "Text changed! This is reactive behavior.";
+    }
+</script>
+
+</body>
+</html>
